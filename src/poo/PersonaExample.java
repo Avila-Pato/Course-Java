@@ -8,6 +8,30 @@ public class PersonaExample {
     int edad;
     Carrera carrera;
 
+
+
+
+    // Crete a constructor (Metodo que se ejecuta cuando se crea un objeto) 
+    public PersonaExample(String nombre, int edad,  String apellido, String nombreCarrera, int duracionCarrera,
+        boolean estaCursando) {
+
+        carrera = new Carrera(nombreCarrera, duracionCarrera, estaCursando);
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.edad = edad;
+    }
+    //Sobrecarga del constructor
+
+    public PersonaExample(String nombre, String apellido, int edad, String nombreCarrera) {
+        carrera = new Carrera(nombreCarrera);
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.edad = edad;
+
+    }
+
+
+
     // Metodos (Comportamiento de un objeto)
 
     public String darNombreCompleto() {
