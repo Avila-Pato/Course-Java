@@ -66,4 +66,4 @@ Este repositorio contiene los materiales y prácticas del curso completo de Java
 - **Códigos HTTP**: Comprensión de los códigos de estado HTTP y su significado.
 
 ## Conclusión
-Este curso proporciona una base sólida en Java, cubriendo desde conceptos básicos hasta el desarrollo de aplicaciones completas. Puedes usar este repositorio como referencia para tus futuros proyectos en Java.
+Este curso proporciona una base sólida en Java, cubriendo desde conceptos básicos hasta el desarrollo de aplicaciones completas.
