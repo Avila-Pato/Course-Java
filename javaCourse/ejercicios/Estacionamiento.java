@@ -1,43 +1,23 @@
-//un administrador de un estacionamineto nececita un programa quepermite el total a pagar de varios clientes
-
-// El programa debe solicitar por teclado los datos
-// La patente del vehiculo
-// el tipo de estacionamiento
-
-// los tipos de estacioanmiento son 3
-
-// por 1 hora (3$ uds por hora)
-// media jornada (15$ uds total)
-// jornada completa (30$ y posee 10% de descuento )
-
-// El programa debe calcular el monto a pagar para cada cliente en funcion del tipo de estacionamiento seleccionado. la carga de datos debe continuar hasta qyue el usuario ingrese la palabra Fin en lugar de la patente
-
-//se debe mostrar en pantllla
-
-// La cantidad total de estacionamientos por hora
-// la cantidad total de estacionamientos de media jornada
-// la cantidad total de estacionamientos de jornada completa
-// la suma total de ingresos en USD que hubo durante el dia
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Estacionamiento {
     public static void main(String[] args) {
-        ArrayList<String> patentes = new ArrayList<>();
         Scanner teclado = new Scanner(System.in);
 
+        int totalHora = 0;
+        int totalMediaJornada = 0;
+        int totalJornadaCompleta = 0;
+        double totalGanancias = 0;
+
         while (true) {
-            System.out.println("Ingrese la patente del vehículo. Para terminar escriba 'salir':");
+            System.out.println("Ingrese la patente del vehículo. Para terminar escriba 'Fin':");
             String patente = teclado.next();
 
-            if (patente.equalsIgnoreCase("salir")) {
+            if (patente.equalsIgnoreCase("Fin")) {
                 break;
             }
 
-            patentes.add(patente);
-            System.out.println("Patentes registradas: " + patentes);
-
-            System.out.println("*********** Precio de Estacionamientos ************");
+            System.out.println("*********** Tipos de Estacionamiento ************");
             System.out.println(
                 "1) 1 hora (3$ USD por hora)\n" +
                 "2) Media jornada (15$ USD total)\n" +
@@ -48,36 +28,23 @@ public class Estacionamiento {
 
             switch (opcion) {
                 case "1":
-                    System.out.println("Ingrese su dinero:");
-                    int dinero1 = teclado.nextInt();
-                    if (dinero1 >= 3) {
-                        System.out.println("1 hora agregada.");
-                    } else {
-                        System.out.println("Monto insuficiente.");
-                    }
+                    totalHora++;
+                    totalGanancias += 3;
+                    System.out.println("Estacionamiento por 1 hora registrado. Total a pagar: $3");
                     break;
 
                 case "2":
-                    System.out.println("Ingrese su dinero:");
-                    int dinero2 = teclado.nextInt();
-                    if (dinero2 >= 15) {
-                        System.out.println("Media jornada agregada.");
-                    } else {
-                        System.out.println("Monto insuficiente.");
-                    }
+                    totalMediaJornada++;
+                    totalGanancias += 15;
+                    System.out.println("Estacionamiento por media jornada registrado. Total a pagar: $15");
                     break;
 
                 case "3":
-                    System.out.println("Ingrese su dinero:");
-                    int dinero3 = teclado.nextInt();
-                    if (dinero3 >= 30) {
-                        double descuento = 30 * 0.10;
-                        double totalPagar = 30 - descuento;
-                        System.out.println("Jornada completa agregada. Descuento aplicado: $" + descuento);
-                        System.out.println("Total a pagar: $" + totalPagar);
-                    } else {
-                        System.out.println("Monto insuficiente.");
-                    }
+                    totalJornadaCompleta++;
+                    double descuento = 30 * 0.10;
+                    double totalPagar = 30 - descuento;
+                    totalGanancias += totalPagar;
+                    System.out.printf("Jornada completa registrada. Descuento: $%.2f, Total a pagar: $%.2f%n", descuento, totalPagar);
                     break;
 
                 default:
@@ -87,6 +54,13 @@ public class Estacionamiento {
         }
 
         teclado.close();
+
+        // Mostrar resultados finales
+        System.out.println("\n*********** RESUMEN DEL DÍA ************");
+        System.out.println("Cantidad total de estacionamientos por hora: " + totalHora);
+        System.out.println("Cantidad total de estacionamientos de media jornada: " + totalMediaJornada);
+        System.out.println("Cantidad total de estacionamientos de jornada completa: " + totalJornadaCompleta);
+        System.out.printf("Suma total de ingresos en USD: $%.2f%n", totalGanancias);
         System.out.println("Programa terminado.");
     }
 }
