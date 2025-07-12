@@ -1,4 +1,4 @@
-package javaCourse.bin.tryCatch;
+package javaCourse.Calculadora.java;
 
 public class EjemploTryCatch {
     public static void main(String[] args) {

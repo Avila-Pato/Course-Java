@@ -1,4 +1,4 @@
-package javaCourse.bin.tryCatch;
+package javaCourse.Calculadora.java;
 
 public class CalculadoraException extends Exception {
     private String description;
