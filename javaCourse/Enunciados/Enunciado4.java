@@ -6,6 +6,7 @@ import java.util.*;
 public class Enunciado4 {
     public static void main(String[] args) {
     double sueldos [] = new double[12];
+    
 
     Scanner teclado = new Scanner(System.in);
     // indica al usuario los 12 sueldos
